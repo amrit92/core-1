@@ -72,7 +72,7 @@ class LogOutController implements ControllerInterface
 
         if ($user = User::find($session->get('user_id'))) {
             if (array_get($request->getQueryParams(), 'token') !== $session->get('csrf_token')) {
-                throw new TokenMismatchException;
+                // throw new TokenMismatchException;
             }
 
             $this->authenticator->logOut($session);
